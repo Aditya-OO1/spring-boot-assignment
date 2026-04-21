@@ -1,0 +1,87 @@
+{
+  "info": {
+    "name": "Grid07 Assignment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/users", "host": ["localhost"], "port": "8080", "path": ["api", "users"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"alice\",\n  \"isPremium\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Bot",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/bots", "host": ["localhost"], "port": "8080", "path": ["api", "bots"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"BotAlpha\",\n  \"personaDescription\": \"A helpful bot\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Post",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/posts", "host": ["localhost"], "port": "8080", "path": ["api", "posts"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"authorId\": 1,\n  \"authorType\": \"USER\",\n  \"content\": \"Hello world!\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Add Comment (Bot)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/posts/1/comments", "host": ["localhost"], "port": "8080", "path": ["api", "posts", "1", "comments"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"authorId\": 1,\n  \"authorType\": \"BOT\",\n  \"content\": \"Nice post!\",\n  \"depthLevel\": 1,\n  \"humanUserId\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Add Comment (Human)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/posts/1/comments", "host": ["localhost"], "port": "8080", "path": ["api", "posts", "1", "comments"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"authorId\": 1,\n  \"authorType\": \"USER\",\n  \"content\": \"Thanks!\",\n  \"depthLevel\": 2\n}"
+        }
+      }
+    },
+    {
+      "name": "Like Post",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/posts/1/like", "host": ["localhost"], "port": "8080", "path": ["api", "posts", "1", "like"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Virality Score",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/posts/1/virality", "host": ["localhost"], "port": "8080", "path": ["api", "posts", "1", "virality"] }
+      }
+    }
+  ]
+}
