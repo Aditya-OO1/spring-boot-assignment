@@ -1,4 +1,8 @@
-## Thought Process
+## Limitations
+
+- This version assumes Redis is available and does not include a fallback strategy.
+- The batching approach is simple and works for this assignment, but can be improved for larger workloads.
+- Logging and monitoring can be expanded further for production use.## Thought Process
 
 - I chose Redis for rate limiting because it provides atomic operations like INCR, which helps in handling concurrent requests without race conditions.
 - Initially, I considered using the database for enforcing limits, but it could lead to performance issues and conflicts under high traffic.
