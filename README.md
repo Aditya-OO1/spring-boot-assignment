@@ -1,4 +1,22 @@
+## Thought Process
+
+- I chose Redis for rate limiting because it provides atomic operations like INCR, which helps handle concurrent requests without race conditions.
+- Initially, I considered using the database for enforcing limits, but it could lead to performance issues and conflicts under high traffic.
+- For notification batching, I used Redis lists to temporarily store events and process them every 5 minutes using a scheduled task.
+- I focused on keeping the implementation simple and efficient while ensuring scalability for higher loads.
+
+## Future Improvements
+
+- Add retry mechanisms for failed operations
+- Improve error handling and logging
+- Introduce authentication and authorization
+- Optimize batching strategy for large-scale systems
+
 ## Limitations
+
+- This version assumes Redis is available and does not include a fallback strategy.
+- The batching approach is simple and works for this assignment, but can be improved for larger workloads.
+- Logging and monitoring can be expanded further for production use.## Limitations
 
 - This version assumes Redis is available and does not include a fallback strategy.
 - The batching approach is simple and works for this assignment, but can be improved for larger workloads.
