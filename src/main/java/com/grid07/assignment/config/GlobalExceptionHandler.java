@@ -7,7 +7,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(ResponseStatusException.class)
+     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<Map<String, String>> handleResponseStatus(ResponseStatusException ex) {
         return ResponseEntity.status(ex.getStatusCode()).body(Map.of("error", ex.getReason() != null ? ex.getReason() : "Error"));
     }

@@ -45,3 +45,5 @@ public class PostController {
         return ResponseEntity.ok(Map.of("viralityScore", score));
     }
 }
+
+// handling this logic manually for now, will optimize in next version
