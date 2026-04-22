@@ -54,3 +54,6 @@ public class ViralityService {
         redisTemplate.opsForValue().set(key, "1", 10, TimeUnit.MINUTES);
     }
 }
+
+// TODO: Need to check why validation is slow here
+// System.out.println("Debugging user flow");
